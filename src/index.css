@@ -1,0 +1,95 @@
+@import "tailwindcss";
+
+@theme {
+  /* Core brand colors — sampled directly from the source UI Kit PNGs (pixel-verified).
+     The kit's true palette is a teal-green primary (#00D09E) with a pure-blue accent
+     (#0068FF); it does NOT use indigo/navy or coral. Every value below is the exact
+     or nearest-derived hex pulled from the kit screens, replacing the previous
+     approximated tokens. */
+  --color-brand-50: #F1FFF3;
+  --color-brand-100: #DFF7E2;
+  --color-brand-400: #33DDAE;
+  --color-brand-500: #00D09E;
+  --color-brand-600: #00B589;
+  --color-brand-700: #009973;
+
+  --color-accent-blue: #0068FF;
+  --color-accent-blue-light: #6DB6FE;
+  --color-accent-blue-mid: #3299FF;
+
+  --color-ink-900: #093030;
+  --color-ink-700: #33433F;
+  --color-ink-400: #7C8C88;
+  --color-ink-200: #C4D0CC;
+
+  --color-surface: #F1FFF3;
+  --color-surface-card: #FFFFFF;
+  --color-surface-mint: #DFF7E2;
+
+  --font-display: "Manrope", "Inter", sans-serif;
+  --font-body: "Inter", sans-serif;
+}
+
+html, body, #root {
+  height: 100%;
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--color-surface);
+  color: var(--color-ink-900);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Mobile app shell: centers the phone-width app on desktop, full width on mobile */
+.app-shell {
+  max-width: 430px;
+  margin: 0 auto;
+  min-height: 100vh;
+  background: var(--color-surface);
+  position: relative;
+  box-shadow: 0 0 60px rgba(16, 27, 25, 0.08);
+}
+
+@media (min-width: 431px) {
+  body {
+    background: linear-gradient(180deg, #EAF6F1 0%, #DCEFE8 100%);
+  }
+}
+
+::-webkit-scrollbar { width: 0px; }
+
+/* Dark mode overrides */
+.dark body {
+  background: #071E1E;
+}
+
+.dark .app-shell {
+  background: #071E1E;
+}
+
+.dark {
+  --color-surface: #071E1E;
+  --color-surface-card: #10302E;
+  --color-surface-mint: #10302E;
+  --color-ink-900: #F1FFF3;
+  --color-ink-700: #C4D0CC;
+  --color-ink-400: #7C8C88;
+  --color-ink-200: #23423F;
+}
+
+.dark .bg-white {
+  background-color: #142622 !important;
+}
+
+.dark .border-ink-200 {
+  border-color: #253833 !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
